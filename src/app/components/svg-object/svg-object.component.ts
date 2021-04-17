@@ -27,92 +27,61 @@ export class SvgObjectComponent implements AfterViewInit {
     gsap.registerPlugin(ScrollTrigger);
   }
 
-  // randomize(min: number, max: number) {
-  //   return Math.floor(Math.random() * (max - min + 1)) + min;
-  // }
-
   ngAfterViewInit(): void {
     const circles = this.circle.map((cir) => cir.nativeElement);
     const circles2 = this.circle2.map((cir) => cir.nativeElement);
     const circles3 = this.circle3.map((cir) => cir.nativeElement);
-    const colors = {
-      primary: '#FDCE56',
-      secondary: '#373596',
-      accent1: '#1AFFD6',
-      accent2: '#FF429D',
-    };
 
     const staggering = gsap.timeline({
       defaults: {
         transformOrigin: 'top center',
         ease: 'power3.inOut',
-        duration: 2.75,
+        duration: 2.25,
         repeat: -1,
         yoyo: true,
         yoyoEase: true,
-        stagger: 0.125,
+        stagger: {
+          each: 0.125,
+          from: 'start',
+        },
       },
     });
 
     staggering
+      .to(circles, {
+        scaleX: 2.25,
+        scaleY: 1.25,
+        ease: 'back',
+        y: 90,
+      })
       .to(
-        this.element.nativeElement,
-        {
-          '--progress-end': '40%',
-          ease: 'power2.inOut',
-        },
-        0
-      )
-      .fromTo(
-        circles,
-        {
-          scale: 0.98,
-          stroke: '#ffffff',
-        },
-        {
-          scale: 2.25,
-        },
-        0
-      )
-      .fromTo(
         circles2,
         {
-          x: -0.75,
-          y: -0.75,
-          scale: 0.98,
-          stroke: '#FF447C',
-        },
-        {
-          x: 0.25,
-          y: 0.25,
-          scale: 2.25,
-          stroke: '#FF447C',
+          scaleX: 2.25,
+          scaleY: 1.25,
+          ease: 'back',
+          y: 91,
         },
         0.0125
       )
-      .fromTo(
+      .to(
         circles3,
         {
-          x: 0.75,
-          y: 0.75,
-          scale: 0.98,
-          stroke: '#3FFFA3',
+          scaleX: 2.25,
+          scaleY: 1.25,
+          ease: 'back',
+          y: 89,
         },
-        {
-          x: -0.25,
-          y: -0.25,
-          scale: 2.25,
-          stroke: '#3FFFA3',
-        },
-        0.0145
+        0.0135
       )
       .to(
         this.theLight.nativeElement,
         {
-          scale: 0.25,
-          y: 20,
+          scale: 2.75,
+          y: -90,
+          ease: 'elastic',
         },
-        0.125
+        2.125
       );
   }
 }

@@ -31,10 +31,22 @@
   }
 }
 
-.the-grid {
+.orbit {
   position: relative;
   z-index: 1;
   flex-shrink: 0;
-  height: 90%;
-  width: 90%;
+  height: 100%;
+  width: 100%;
+}
+
+.group-1 {
+  color: color('light');
+}
+
+.group-2 {
+  color: color('accent1');
+}
+
+.group-3 {
+  color: color('accent2');
 }
