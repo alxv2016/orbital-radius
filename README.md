@@ -3,7 +3,7 @@ This is a series of SVG animation experiments conducted using the GSAP library t
 
 ## Demo
 You can view the demo here:
-[Orbital Radius](https://superretina.alxvtoronto.com/)
+[Orbital Radius](https://orbit.alxvtoronto.com/)
 
 ## Take aways
 1. Using GSAP animation the "Angular way"
